@@ -1,0 +1,20 @@
+<h1>All Users</h1>
+<label>Search Users: <input type="text" ng-model="userfilter"></label>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Show</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="user in users | orderBy:sortType:sortReverse | filter:userfilter track by $index">
+        <th>{{user.first_name}} {{user.last_name}}</th>
+        <th><a href="/#!/show/{{ user._id }}" ng-click="showUser($index)">Show</a></th>
+        <th><a href="/#!/edit/{{ user._id }}" ng-click="editUser($index)">Update</a></th>
+        <th><a href="/#!/" ng-click="removeUser(user._id)">Delete</a></th>
+    </tr>
+</table>
+
+<hr>
+
+<a href="#!/new">Add New User</a>

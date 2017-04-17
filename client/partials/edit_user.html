@@ -1,0 +1,19 @@
+<h1>Edit User</h1>
+
+<p>Current Name: {{ user.first_name }} {{ user.last_name }}</p>
+<p>Current Birthday: {{ user.birthday | date : format : timezone }}</p>
+
+<hr>
+<form ng-submit="editUser()" name="userForm">
+    <label for="first_name">First Name: <input type="text" name="first_name" ng-model="editedUser.first_name" minlength='2'required></label>
+    <label for="last_name">Last Name: <input type="text" name="last_name" ng-model="editedUser.last_name" minlength='2'required></label>
+    <label for="birthday">Birthday: <input type="date" name="birthday" ng-model="editedUser.birthday" required></label>
+    <button type="submit">Edit User</button>
+</form>
+<hr>
+<div ng-messages="userForm.name.$error">
+     <p ng-message="minlength">The user name is too short.</p>
+     <p ng-message="required">The user name is required.</p>
+ </div>
+
+<a href="#!/index">Back to User Index</a>

@@ -1,0 +1,6 @@
+<h1>Show User</h1>
+
+<p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+<p>Birthday: {{ user.birthday | date : format : timezone }}</p>
+
+<a href="#!/index">Back to User Index</a>

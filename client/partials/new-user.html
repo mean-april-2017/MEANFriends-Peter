@@ -1,0 +1,14 @@
+<h1> New User</h1>
+<form ng-submit="addUser()" name="addUserForm">
+    <label for="first_name">First Name: <input name="first_name" ng-model="user.first_name" type="text" ng-model="editedUser.first_name" minlength='2'required></label>
+    <label for="last_name">Last Name: <input name="last_name" ng-model="user.last_name" type="text" ng-model="editedUser.last_name" minlength='2'required></label>
+    <label for="birthday">Birthday <input ng-model="user.birthday" type="date" required></label>
+    <input type="submit" value="Create">
+</form>
+
+<div ng-messages="addUserForm.name.$error">
+     <p ng-message="minlength">The user name is too short.</p>
+     <p ng-message="required">The user name is required.</p>
+ </div>
+
+<a href="#!/index">Back to User Index</a>
